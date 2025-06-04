@@ -1,0 +1,23 @@
+name: "✨ Feature Request"
+description: "새로운 기능 추가 또는 개선 요청"
+labels: "feature"
+body:
+  - type: textarea
+    attributes:
+      label: "기능 설명"
+      description: "추가되거나 개선될 기능에 대해 구체적으로 설명해 주세요. 기능의 목적, 사용자 기대 효과 등을 포함합니다."
+      placeholder: "예: 사용자 프로필 페이지에 다크모드 옵션 추가..."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "세부 작업 및 계획"
+      description: "구현에 필요한 작업들을 구체적으로 나열해 주세요. 각 작업 단계와 예상 소요 시간 등을 포함하면 좋습니다."
+      placeholder: "예: UI 디자인 수정, 백엔드 API 연동, 테스트 케이스 작성 등"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "참고자료 / 추가 설명"
+      description: "관련 문서, 링크, 참고 사항 등을 기입해 주세요."
+      placeholder: "예: Figma 디자인 링크, 관련 문서 링크 등"

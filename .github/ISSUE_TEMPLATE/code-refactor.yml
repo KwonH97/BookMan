@@ -1,0 +1,23 @@
+name: "🔨 Code Refactor"
+description: "코드 개선 및 최적화 요청"
+labels: "refactor"
+body:
+  - type: textarea
+    attributes:
+      label: "개선 필요 설명"
+      description: "현재 코드에서 개선이 필요한 부분과 그 이유를 구체적으로 설명해 주세요."
+      placeholder: "예: 기존 API 호출 로직의 중복 제거 및 효율성 개선 필요..."
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "구체적 작업 항목"
+      description: "리팩터링 과정에서 수행할 구체적인 작업들을 작성해 주세요."
+      placeholder: "예: 함수 분리, 변수 네이밍 수정, 불필요한 코드 제거 등"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "추가 참고사항"
+      description: "리팩터링과 관련한 참고자료나 추가 설명이 있다면 기입해 주세요."
+      placeholder: "예: 관련 이슈 링크, 성능 테스트 결과 등"

@@ -1,0 +1,23 @@
+name: "🙋‍♂️ Meeting Request"
+description: "팀 미팅 및 논의 요청"
+labels: "meeting"
+body:
+  - type: textarea
+    attributes:
+      label: "회의 주제 및 목적"
+      description: "회의에서 논의할 주제와 그 목적을 구체적으로 설명해 주세요."
+      placeholder: "예: 다음 분기 프로젝트 목표 및 역할 분담 논의"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "논의할 주요 사항"
+      description: "회의에서 다룰 구체적인 항목이나 의제들을 나열해 주세요."
+      placeholder: "예: 일정 조율, 예산 배분, 기술적 문제 등"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: "추가 참고자료"
+      description: "회의 전 공유할 자료나 참고 문서가 있다면 기입해 주세요."
+      placeholder: "예: 보고서, 슬라이드, 관련 링크 등"

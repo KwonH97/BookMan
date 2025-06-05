@@ -1,10 +1,5 @@
 # 📚 BookMan - 도서 관리 시스템
 
-## 🎯 프로젝트 개요
-
-BookMan은 TDD(Test-Driven Development) 방식으로 개발된 Spring Boot 기반의 도서 관리 시스템입니다.
-JWT 토큰 기반 인증과 권한 관리, RESTful API를 제공합니다.
-
 ## 🏗️ 기술 스택
 
 ### Backend
@@ -88,8 +83,19 @@ cd BookMan
 # 전체 테스트 실행
 ./gradlew test
 
+# 테스트 스위트별 실행
+./gradlew test --tests "com.bookman.TestRunner"              # 전체 단위 테스트
+./gradlew test --tests "com.bookman.IntegrationTestRunner"   # 통합 테스트만
+./gradlew test --tests "com.bookman.PerformanceTestRunner"   # 성능 테스트만
+
 # 특정 테스트 클래스 실행
 ./gradlew test --tests "AuthControllerTest"
+./gradlew test --tests "*Service*"
+
+# 테스트 태그별 실행
+./gradlew unitTest           # 단위 테스트만
+./gradlew integrationTest    # 통합 테스트만  
+./gradlew performanceTest    # 성능 테스트만
 
 # 테스트 리포트 확인
 # build/reports/tests/test/index.html
@@ -206,39 +212,10 @@ spring.datasource.username=your-username
 spring.datasource.password=your-password
 ```
 
-## 🧪 테스트 커버리지
-
-현재 테스트 커버리지:
-- **Controller Layer**: 100%
-- **Service Layer**: 95%
-- **Repository Layer**: 90%
-- **Utility Classes**: 100%
-
-## 🚧 향후 개발 계획
-
-### Phase 1: 기본 기능 (완료)
-- ✅ JWT 인증 시스템
-- ✅ 사용자 관리
-- ✅ API 문서화
-- ✅ 테스트 인프라
-
-### Phase 2: 도서 관리 (예정)
-- 📚 도서 CRUD
-- 🔍 도서 검색
-- 📊 카테고리 관리
-- 📈 통계 기능
-
-### Phase 3: 고급 기능 (예정)
-- 📱 모바일 앱 연동
-- 🔔 알림 시스템
-- 📊 대시보드
-- 🔄 데이터 백업
-
-## 🤝 기여 가이드
 
 ### 개발 워크플로우
 1. **이슈 생성**: GitHub Issues에 작업 내용 등록
-2. **브랜치 생성**: `feature/기능명` 또는 `bugfix/버그명`
+2. **브랜치 생성**: `feature/기능명` 또는 `bug/버그명`
 3. **TDD 적용**: 테스트 먼저 작성 후 기능 구현
 4. **코드 리뷰**: Pull Request를 통한 코드 검토
 5. **병합**: 테스트 통과 후 main 브랜치 병합
@@ -246,24 +223,10 @@ spring.datasource.password=your-password
 ### 커밋 컨벤션
 ```
 feat: 새로운 기능 추가
-fix: 버그 수정
+bug: 버그 수정
 docs: 문서 수정
-style: 코드 스타일 변경
 refactor: 코드 리팩토링
 test: 테스트 코드 추가/수정
 chore: 빌드 설정 등 기타 변경
 ```
 
-## 📝 라이센스
-
-이 프로젝트는 MIT 라이센스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
-
-## 📞 문의
-
-- **Email**: dev@bookman.com
-- **GitHub**: [BookMan Repository](https://github.com/bookman)
-- **Documentation**: [Wiki](https://github.com/bookman/wiki)
-
----
-
-**Happy Coding! 📚✨**

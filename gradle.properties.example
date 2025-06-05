@@ -1,0 +1,16 @@
+# Gradle 설정
+org.gradle.jvmargs=-Xmx2048M -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -XX:+UseParallelGC
+
+# Java 21 경로 설정 (설치된 경로에 맞게 수정하세요)
+# Microsoft OpenJDK 21의 경우:
+# org.gradle.java.home=C:\\Program Files\\Microsoft\\jdk-21.0.5.11-hotspot
+# Oracle JDK 21의 경우:
+# org.gradle.java.home=C:\\Program Files\\Java\\jdk-21
+
+# Virtual Thread 지원을 위한 JDK 21 사용
+java.toolchain.version=21
+
+# Gradle Daemon 최적화
+org.gradle.daemon=true
+org.gradle.parallel=true
+org.gradle.configureondemand=true

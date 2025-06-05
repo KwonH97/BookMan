@@ -1,4 +1,4 @@
-package com.bookman.domain.book.entity;
+package com.bookman.book.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

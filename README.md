@@ -3,6 +3,7 @@
 ## 🏗️ 기술 스택
 
 ### Backend
+
 - **Java 21** - 최신 LTS 버전 + **Virtual Thread 지원**
 - **Spring Boot 3.5.0** - 웹 애플리케이션 프레임워크
 - **Spring Security 6** - 인증 및 권한 관리
@@ -13,6 +14,7 @@
 - **Virtual Threads** - JDK 21의 경량 스레드로 높은 동시성 처리
 
 ### Development & Testing
+
 - **Gradle 8.14** - 빌드 도구
 - **JUnit 5** - 테스트 프레임워크
 - **AssertJ** - 테스트 어설션 라이브러리
@@ -20,18 +22,21 @@
 - **TDD** - 테스트 주도 개발 방법론
 
 ### Documentation
+
 - **Swagger/OpenAPI 3** - API 문서화
 - **Spring Boot DevTools** - 개발 편의성
 
 ## 🚀 빠른 시작
 
 ### 1. 프로젝트 클론
+
 ```bash
 git clone <repository-url>
 cd BookMan
 ```
 
 ### 2. 애플리케이션 실행
+
 ```bash
 # Gradle로 실행
 ./gradlew bootRun
@@ -40,24 +45,26 @@ cd BookMan
 ```
 
 ### 3. 접속 확인
+
 - **애플리케이션**: http://localhost:8080
 - **Swagger UI**: http://localhost:8080/swagger-ui.html
 - **H2 Console**: http://localhost:8080/h2-console
-  - JDBC URL: `jdbc:h2:mem:bookman`
-  - Username: `sa`
-  - Password: (비어있음)
+    - JDBC URL: `jdbc:h2:mem:bookman`
+    - Username: `sa`
+    - Password: (비어있음)
 - **Virtual Thread 성능 테스트**: http://localhost:8080/swagger-ui.html#/Virtual%20Thread%20Performance
 
 ## 👥 테스트 계정
 
-| 역할 | 사용자명 | 비밀번호 | 설명 |
-|------|----------|----------|------|
-| 관리자 | `admin` | `admin123` | 모든 권한 보유 |
-| 일반사용자 | `user` | `user123` | 기본 사용자 권한 |
+| 역할    | 사용자명    | 비밀번호       | 설명        |
+|-------|---------|------------|-----------|
+| 관리자   | `admin` | `admin123` | 모든 권한 보유  |
+| 일반사용자 | `user`  | `user123`  | 기본 사용자 권한 |
 
 ## 🧪 TDD 개발 방식
 
 ### 테스트 전략
+
 ```
 📁 src/test/java/
 ├── 🧪 Unit Tests        # 단위 테스트
@@ -74,11 +81,13 @@ cd BookMan
 ```
 
 ### TDD 사이클
+
 1. **🔴 Red**: 실패하는 테스트 작성
 2. **🟢 Green**: 테스트를 통과하는 최소한의 코드 작성
 3. **🔵 Refactor**: 코드 개선 및 리팩토링
 
 ### 테스트 실행
+
 ```bash
 # 전체 테스트 실행
 ./gradlew test
@@ -106,6 +115,7 @@ cd BookMan
 ### 🔐 인증 API
 
 #### 회원가입
+
 ```http
 POST /api/auth/register
 Content-Type: application/json
@@ -119,6 +129,7 @@ Content-Type: application/json
 ```
 
 #### 로그인
+
 ```http
 POST /api/auth/login
 Content-Type: application/json
@@ -130,6 +141,7 @@ Content-Type: application/json
 ```
 
 #### 토큰 검증
+
 ```http
 GET /api/auth/validate
 Authorization: Bearer {jwt-token}
@@ -138,12 +150,14 @@ Authorization: Bearer {jwt-token}
 ### 👤 사용자 API
 
 #### 내 정보 조회
+
 ```http
 GET /api/users/me
 Authorization: Bearer {jwt-token}
 ```
 
 #### 관리자 전용 API
+
 ```http
 GET /api/users/admin-only
 Authorization: Bearer {admin-jwt-token}
@@ -152,11 +166,13 @@ Authorization: Bearer {admin-jwt-token}
 ### ⚡ Virtual Thread 성능 API
 
 #### 스레드 정보 조회
+
 ```http
 GET /api/performance/thread-info
 ```
 
 #### Virtual Thread 스트레스 테스트
+
 ```http
 POST /api/performance/stress-test?taskCount=1000&delayMs=100
 ```
@@ -164,6 +180,7 @@ POST /api/performance/stress-test?taskCount=1000&delayMs=100
 ## 🏛️ 아키텍처
 
 ### 계층 구조
+
 ```
 📁 src/main/java/com/bookman/
 ├── 🚀 BookManApplication.java          # 메인 애플리케이션
@@ -187,6 +204,7 @@ POST /api/performance/stress-test?taskCount=1000&delayMs=100
 ```
 
 ### 보안 설정
+
 - **JWT 토큰**: 24시간 유효
 - **비밀번호**: BCrypt 암호화
 - **CORS**: 개발환경용 설정
@@ -195,38 +213,35 @@ POST /api/performance/stress-test?taskCount=1000&delayMs=100
 ## 🔧 개발 환경 설정
 
 ### IDE 설정 (IntelliJ IDEA 권장)
+
 1. Project SDK: Java 21
 2. Gradle JVM: Java 21
 3. Annotation Processing 활성화 (Lombok)
 4. Code Style: Google Java Style
 
 ### 환경 변수 (application.properties)
+
 ```properties
 # JWT 설정
 jwt.secret=your-secret-key-here
 jwt.expiration=86400000
-
 # 데이터베이스 설정 (MySQL 사용시)
 spring.datasource.url=jdbc:mysql://localhost:3306/bookman
 spring.datasource.username=your-username
 spring.datasource.password=your-password
 ```
 
-
 ### 개발 워크플로우
+
 1. **이슈 생성**: GitHub Issues에 작업 내용 등록
 2. **브랜치 생성**: `feature/기능명` 또는 `bug/버그명`
 3. **TDD 적용**: 테스트 먼저 작성 후 기능 구현
 4. **코드 리뷰**: Pull Request를 통한 코드 검토
 5. **병합**: 테스트 통과 후 main 브랜치 병합
 
-### 커밋 컨벤션
-```
-feat: 새로운 기능 추가
-bug: 버그 수정
-docs: 문서 수정
-refactor: 코드 리팩토링
-test: 테스트 코드 추가/수정
-chore: 빌드 설정 등 기타 변경
-```
+### 📝 커밋 컨벤션
+
+본 프로젝트는 **Conventional Commits** 규칙을 따릅니다.
+
+📋 **자세한 가이드**: [COMMIT_CONVENTION.md](./COMMIT_CONVENTION.md)
 

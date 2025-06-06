@@ -1,0 +1,40 @@
+# <type>(<scope>): <subject>
+# |<----  Using a Maximum Of 50 Characters  ---->|
+
+# Explain why this change is being made
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+
+# Provide links or keys to any relevant tickets, articles or other resources
+# Example: Github issue #23
+
+# --- COMMIT END ---
+# Type can be 
+#    feat     (new feature)
+#    fix      (bug fix)
+#    refactor (refactoring code)
+#    style    (formatting, missing semi colons, etc; no code change)
+#    docs     (changes to documentation)
+#    test     (adding or refactoring tests; no production code change)
+#    chore    (updating grunt tasks etc; no production code change)
+#    perf     (performance improvement)
+#    ci       (CI/CD related)
+#    build    (build system changes)
+#    revert   (reverting previous commit)
+# --------------------
+# Scope can be
+#    book     (도서 관련)
+#    author   (저자 관련)
+#    user     (사용자 관련)
+#    auth     (인증/인가)
+#    search   (검색 기능)
+#    admin    (관리자 기능)
+#    api      (API 관련)
+#    db       (데이터베이스)
+#    config   (설정 관련)
+#    security (보안 관련)
+# --------------------
+# Remember to
+#    - Use present tense ("add feature" not "added feature")
+#    - Use imperative mood ("move cursor to..." not "moves cursor to...")
+#    - Limit the first line to 72 characters or less
+#    - Reference issues and pull requests liberally after the first line

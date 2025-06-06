@@ -1,0 +1,45 @@
+#!/bin/sh
+# BookMan 프로젝트 커밋 메시지 검증 스크립트
+
+# 커밋 메시지 읽기
+commit_msg=$(cat $1)
+
+# 빈 라인과 주석 제거
+commit_msg=$(echo "$commit_msg" | grep -v '^#' | grep -v '^$' | head -1)
+
+# 기본 형식 검증: <type>(<scope>): <subject>
+commit_regex='^(feat|fix|docs|style|refactor|perf|test|chore|ci|build|revert)(\([a-z]+\))?: .{1,50}$'
+
+if ! echo "$commit_msg" | grep -qE "$commit_regex"; then
+    echo "❌ 커밋 메시지 형식이 올바르지 않습니다!"
+    echo ""
+    echo "📝 올바른 형식:"
+    echo "   <type>(<scope>): <subject>"
+    echo ""
+    echo "📋 예시:"
+    echo "   feat(book): 도서 검색 기능 추가"
+    echo "   fix(auth): 로그인 토큰 만료 처리 오류 수정"
+    echo "   docs(readme): 설치 가이드 업데이트"
+    echo ""
+    echo "🏷️  허용되는 type:"
+    echo "   feat, fix, docs, style, refactor, perf, test, chore, ci, build, revert"
+    echo ""
+    echo "🎯 허용되는 scope:"
+    echo "   book, author, user, auth, search, admin, api, db, config, security"
+    echo ""
+    echo "📏 Subject는 1-50자 사이여야 합니다."
+    echo ""
+    exit 1
+fi
+
+# 추가 검증: 한글 또는 영어만 허용 (이모지 제외)
+subject=$(echo "$commit_msg" | sed 's/^[^:]*: //')
+if echo "$subject" | grep -q '[😀-🙏🌀-🗿🚀-🛿]'; then
+    echo "⚠️  커밋 메시지에 이모지 사용을 권장하지 않습니다."
+    echo "   더 명확하고 검색 가능한 텍스트를 사용해주세요."
+    echo ""
+fi
+
+# 성공 메시지
+echo "✅ 커밋 메시지 형식이 올바릅니다!"
+exit 0

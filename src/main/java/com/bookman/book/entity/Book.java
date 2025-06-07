@@ -52,4 +52,7 @@ public class Book {
 
     @Column(name = "registered_date", nullable = false)
     private LocalDateTime registeredDate = LocalDateTime.now();
+
+    @Column(name = "deleted_at")
+    private LocalDateTime deletedAt; // Soft delete 필드
 }
